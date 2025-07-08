@@ -6,7 +6,7 @@ export const segments: Segment[] = [
     name: "SOCCERBOT",
     color: "from-red-500 to-pink-600",
     icon: "⚽",
-    description: "Autonomous robot soccer competition",
+    description: "Robot soccer competition",
     prizes: { first: "25,000 BDT", second: "15,000 BDT", third: "10,000 BDT" },
   },
   {

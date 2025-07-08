@@ -56,7 +56,7 @@ export const organizers: Organizer[] = [
     designation: "Assistant Professor",
     role: "Director of Project Showcase Segment",
     phone: "+8801816925531",
-    image: "/abhishek_sir.jpg", // Corrected
+    image: "/Abhishek_sir.jpg", // Corrected
     tier: "second",
   },
 ]
