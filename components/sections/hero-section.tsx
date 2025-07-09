@@ -193,60 +193,72 @@ export function HeroSection() {
       <div className="relative z-20 text-center px-4 max-w-7xl mx-auto">
         {/* Top Section with Logos */}
         <div className="absolute top-8 left-0 right-0 flex justify-between items-start px-8">
-          {/* Left: DU and RMEDU Logos */}
+          {/* Left: RMEDU and Student Club Logos */}
           <motion.div
             initial={{ opacity: 0, x: -50 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8 }}
             className="flex items-center space-x-8"
           >
+            {/* CHANGE 1: This is now the RMEDU Logo */}
             <motion.div 
-              className="w-24 h-24 bg-gradient-to-br from-white/20 to-white/10 backdrop-blur-md rounded-full flex items-center justify-center overflow-hidden border-3 border-gradient-to-r from-cyan-400/50 to-blue-400/50 shadow-2xl shadow-cyan-500/20"
-              whileHover={{ scale: 1.15, rotate: 5 }}
+              className="w-40 h-40 flex items-center justify-center filter drop-shadow-[0_5px_15px_rgba(236,72,153,0.4)]"
+              whileHover={{ scale: 1.15, rotate: 5, filter: "drop-shadow(0 5px 25px rgba(236,72,153,0.6))" }}
               transition={{ duration: 0.3 }}
-              style={{
-                boxShadow: '0 0 30px rgba(6, 182, 212, 0.3), inset 0 0 20px rgba(255, 255, 255, 0.1)'
-              }}
             >
               <img
-                src="/DU_Logo.jpg"
-                alt="DU Logo"
-                className="object-cover w-full h-full rounded-full"
+                src="/RMEDU_Logo_transparent.png"
+                alt="RMEDU Logo"
+                className="object-contain w-full h-full"
               />
             </motion.div>
+            
+            {/* CHANGE 2: This is now the Student Club Logo */}
             <motion.div 
-              className="w-24 h-24 bg-gradient-to-br from-white/20 to-white/10 backdrop-blur-md rounded-full flex items-center justify-center overflow-hidden border-3 border-gradient-to-r from-pink-400/50 to-purple-400/50 shadow-2xl shadow-pink-500/20"
-              whileHover={{ scale: 1.15, rotate: -5 }}
+              className="w-40 h-40 flex items-center justify-center filter drop-shadow-[0_5px_15px_rgba(6,182,212,0.4)]"
+              whileHover={{ scale: 1.15, rotate: -5, filter: "drop-shadow(0 5px 25px rgba(6,182,212,0.6))" }}
               transition={{ duration: 0.3 }}
-              style={{
-                boxShadow: '0 0 30px rgba(236, 72, 153, 0.3), inset 0 0 20px rgba(255, 255, 255, 0.1)'
-              }}
             >
               <img
-                src="/RMEDU_Logo.png"
-                alt="RMEDU Logo"
-                className="object-cover w-full h-full rounded-full"
+                src="/Student_Club_transparent.png"
+                alt="RMEDU Student Club Logo"
+                className="object-contain w-full h-full"
               />
             </motion.div>
           </motion.div>
 
-          {/* Right: University Badge and Date */}
+          {/* Right: DU Logo with Text and Date */}
           <motion.div
             initial={{ opacity: 0, x: 50 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8, delay: 0.2 }}
-            className="flex flex-col items-end space-y-3"
+            className="flex flex-col items-end space-y-4"
           >
-            <div className="bg-gradient-to-r from-red-500 to-pink-500 px-4 py-2 rounded-lg">
-              <div className="flex items-center space-x-2">
-                <MapPin className="w-4 h-4" />
-                <span className="text-sm font-semibold">UNIVERSITY OF DHAKA</span>
+{/* DU Logo and University Text Container */}
+            <div className="flex items-center space-x-4">
+              {/* University of Dhaka Text with Date */}
+              <div className="text-right flex flex-col items-end space-y-2">
+                <h3 className="text-white text-xl font-bold tracking-wide drop-shadow-lg">
+                  University of Dhaka
+                </h3>
+                <Badge className="bg-gradient-to-r from-pink-500 to-red-500 text-white px-4 py-1 text-sm">
+                  <Calendar className="w-4 h-4 mr-2" />
+                  09-10 August 2025
+                </Badge>
               </div>
+              
+              <motion.div
+                className="w-40 h-40 flex items-center justify-center filter drop-shadow-[0_4px_10px_rgba(255,255,255,0.4)]"
+                whileHover={{ scale: 1.1, filter: "drop-shadow(0 4px 15px rgba(255,255,255,0.6))" }}
+                transition={{ duration: 0.3 }}
+              >
+                <img
+                  src="/DU_Logo_transparent.png"
+                  alt="Dhaka University Logo"
+                  className="object-contain w-full h-full"
+                />
+              </motion.div>
             </div>
-            <Badge className="bg-gradient-to-r from-pink-500 to-red-500 text-white px-6 py-2 text-lg">
-              <Calendar className="w-5 h-5 mr-2" />
-              09-10 August 2025
-            </Badge>
           </motion.div>
         </div>
 
@@ -257,26 +269,25 @@ export function HeroSection() {
           transition={{ duration: 0.8, delay: 0.4 }}
           className="mb-16 mt-8"
         >
-          <div className="inline-flex flex-col items-center space-y-6">
+          <div className="inline-flex flex-col items-center space-y-3">
+            {/* CHANGE 4: Made logo larger and added glow animation */}
             <motion.div
-              className="w-36 h-36 bg-gradient-to-br from-white/20 to-white/10 backdrop-blur-md rounded-full flex items-center justify-center overflow-hidden border-4 border-gradient-to-r from-green-400/50 to-emerald-400/50 shadow-2xl shadow-green-500/20"
-              whileHover={{ scale: 1.1, rotate: 3 }}
+              className="w-48 h-48 flex items-center justify-center"
+              whileHover={{ scale: 1.05, rotate: 3 }}
               transition={{ duration: 0.3 }}
-              style={{
-                boxShadow: '0 0 40px rgba(34, 197, 94, 0.4), inset 0 0 30px rgba(255, 255, 255, 0.1)'
-              }}
               animate={{
-                boxShadow: [
-                  '0 0 40px rgba(34, 197, 94, 0.4), inset 0 0 30px rgba(255, 255, 255, 0.1)',
-                  '0 0 60px rgba(34, 197, 94, 0.6), inset 0 0 30px rgba(255, 255, 255, 0.2)',
-                  '0 0 40px rgba(34, 197, 94, 0.4), inset 0 0 30px rgba(255, 255, 255, 0.1)'
+                filter: [
+                  "drop-shadow(0 8px 30px rgba(34,197,94,0.5))",
+                  "drop-shadow(0 8px 50px rgba(34,197,94,0.8))",
+                  "drop-shadow(0 8px 30px rgba(34,197,94,0.5))",
                 ]
               }}
+              style={{ transition: "filter 3s" }} // Add a style transition for filter
             >
               <img
-                src="/ict_div_logo.png"
+                src="/ict_div_logo_transparent.png"
                 alt="ICT Division Logo"
-                className="object-cover w-full h-full rounded-full scale-90"
+                className="object-contain w-full h-full"
               />
             </motion.div>
             <motion.span 
@@ -366,7 +377,7 @@ export function HeroSection() {
               transition={{ duration: 0.8, delay: 1.2 }}
               className="text-center"
             >
-              <h1 className="text-5xl md:text-7xl font-bold bg-gradient-to-r from-cyan-400 via-pink-400 to-purple-400 bg-clip-text text-transparent tracking-wider">
+              <h1 className="text-4xl md:text-6xl font-bold bg-gradient-to-r from-cyan-400 via-pink-400 to-purple-400 bg-clip-text text-transparent tracking-wider">
                 ROBOTRONICS FEST 2025
               </h1>
             </motion.div>
