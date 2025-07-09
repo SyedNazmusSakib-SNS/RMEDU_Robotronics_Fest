@@ -86,12 +86,16 @@ export function SegmentDetail({ segment }: SegmentDetailProps) {
                 </ul>
                 <div className="flex flex-col sm:flex-row gap-4 mt-6">
                   <Button className="bg-gradient-to-r from-blue-500 to-cyan-500 hover:opacity-90">
-                    <a href="https://drive.google.com/drive/folders/1T_qrxI1oKlFTQtwNleqU2vJrBZpt9wnY?usp=drive_link
-" target="_blank" rel="noopener noreferrer">
-                      <ExternalLink className="w-6 h-6 mr-2" />
+                    <a 
+                      href={segment.rulesLink || "#"} 
+                      target="_blank" 
+                      rel="noopener noreferrer"
+                      className="flex items-center"
+                    >
+                      <FileText className="w-4 h-4 mr-2" />
                       Detailed Rules
+                      <ExternalLink className="w-4 h-4 ml-2" />
                     </a>
-                    <FileText className="w-4 h-4 mr-2" />
                   </Button>
                   <Button asChild className="bg-gradient-to-r from-green-500 to-emerald-500 hover:opacity-90">
                     <a href="https://forms.gle/XJgLtHbrrcXXxp8L6" target="_blank" rel="noopener noreferrer">
