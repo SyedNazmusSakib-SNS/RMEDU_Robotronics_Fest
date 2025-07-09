@@ -4,7 +4,7 @@ export const segments: Segment[] = [
   {
     id: "soccerbot",
     name: "SOCCERBOT",
-    color: "from-red-500 to-pink-600",
+    color: "from-blue-500 to-cyan-600",
     icon: "⚽",
     description: "Robot soccer competition",
     prizes: { first: "25,000 BDT", second: "15,000 BDT" },
@@ -40,7 +40,7 @@ export const segments: Segment[] = [
   {
     id: "datathon",
     name: "DU AI Challenge",
-    color: "from-red-500 to-pink-600",
+    color: "from-blue-500 to-cyan-600",
     icon: "📊",
     description: "Data science and AI competition",
     prizes: { first: "25,000 BDT", second: "15,000 BDT" },
