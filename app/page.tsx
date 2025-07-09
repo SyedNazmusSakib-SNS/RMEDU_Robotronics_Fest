@@ -6,6 +6,7 @@ import { SegmentDetail } from "@/components/sections/segment-detail"
 import { SponsorsSection } from "@/components/sections/sponsors-section"
 import { TimelineSection } from "@/components/sections/timeline-section"
 import { OrganizersSection } from "@/components/sections/organizers-section"
+import { EventOrganizersSection } from "@/components/sections/event-organizers-section"
 import { Footer } from "@/components/sections/footer"
 import { useCountdown } from "@/hooks/use-countdown"
 import { segments } from "@/data/segments"
@@ -29,6 +30,7 @@ export default function RobotronicsFest() {
 
       <SponsorsSection />
       <OrganizersSection organizers={organizers} />
+      <EventOrganizersSection />
       <Footer />
     </div>
   )

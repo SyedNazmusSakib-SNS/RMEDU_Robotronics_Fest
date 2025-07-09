@@ -51,10 +51,6 @@ export function OrganizersSection() {
                       <div className="text-pink-400 font-semibold h-12 flex items-center justify-center">
                         <span className="line-clamp-2 text-center">{organizer.role}</span>
                       </div>
-                      <div className="flex items-center justify-center text-gray-300 h-6">
-                        <Phone className="w-4 h-4 mr-2" />
-                        {organizer.phone}
-                      </div>
                     </CardContent>
                   </Card>
                 </motion.div>
@@ -95,10 +91,7 @@ export function OrganizersSection() {
                       <div className="text-pink-400 font-semibold h-12 flex items-center justify-center">
                         <span className="line-clamp-2 text-center">{organizer.role}</span>
                       </div>
-                      <div className="flex items-center justify-center text-gray-300 h-6">
-                        <Phone className="w-4 h-4 mr-2" />
-                        {organizer.phone}
-                      </div>
+
                     </CardContent>
                   </Card>
                 </motion.div>

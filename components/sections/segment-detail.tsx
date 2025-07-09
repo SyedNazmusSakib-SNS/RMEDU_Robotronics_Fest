@@ -69,7 +69,7 @@ export function SegmentDetail({ segment }: SegmentDetailProps) {
                 <ul className="space-y-2 text-gray-300">
                   <li className="flex items-start">
                     <span className="w-2 h-2 bg-cyan-400 rounded-full mt-2 mr-3 flex-shrink-0"></span>
-                    Teams must consist of 2-4 members from the same university
+                    Teams must consist of 1-4 members
                   </li>
                   <li className="flex items-start">
                     <span className="w-2 h-2 bg-cyan-400 rounded-full mt-2 mr-3 flex-shrink-0"></span>
@@ -77,17 +77,21 @@ export function SegmentDetail({ segment }: SegmentDetailProps) {
                   </li>
                   <li className="flex items-start">
                     <span className="w-2 h-2 bg-cyan-400 rounded-full mt-2 mr-3 flex-shrink-0"></span>
-                    Registration deadline: July 20, 2025
+                    Registration deadline: July 25, 2025
                   </li>
                   <li className="flex items-start">
                     <span className="w-2 h-2 bg-cyan-400 rounded-full mt-2 mr-3 flex-shrink-0"></span>
-                    Participants must bring their own equipment and robots
+                    Participants must bring their own equipments and robots
                   </li>
                 </ul>
                 <div className="flex flex-col sm:flex-row gap-4 mt-6">
                   <Button className="bg-gradient-to-r from-blue-500 to-cyan-500 hover:opacity-90">
+                    <a href="https://drive.google.com/drive/folders/1T_qrxI1oKlFTQtwNleqU2vJrBZpt9wnY?usp=drive_link
+" target="_blank" rel="noopener noreferrer">
+                      <ExternalLink className="w-6 h-6 mr-2" />
+                      Detailed Rules
+                    </a>
                     <FileText className="w-4 h-4 mr-2" />
-                    Detailed Rules
                   </Button>
                   <Button asChild className="bg-gradient-to-r from-green-500 to-emerald-500 hover:opacity-90">
                     <a href="https://forms.gle/XJgLtHbrrcXXxp8L6" target="_blank" rel="noopener noreferrer">

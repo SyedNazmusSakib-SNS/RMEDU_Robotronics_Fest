@@ -9,8 +9,8 @@ const timelineData = [
     date: "09.08.25",
     events: [
       {
-        time: "10:00 - 1:00",
-        name: "Datathon",
+        time: "09:00 - 5:00",
+        name: "DU AI Challenge",
         place: "RME Dept.",
         color: "from-cyan-400 to-blue-500"
       },
