@@ -17,7 +17,7 @@ const timelineData = [
       {
         time: "10:00 - 6:00",
         name: "Robosoccer",
-        place: "Senate – Alumni Hall Room",
+        place: "Senate Alumni Hall Room",
         color: "from-green-400 to-emerald-500"
       },
       {

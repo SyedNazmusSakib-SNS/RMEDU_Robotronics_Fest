@@ -6,19 +6,18 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 import { eventOrganizers } from "@/data/event-organizers"
 
 export function EventOrganizersSection() {
-  // Group organizers by tier and sort tiers numerically
-  const organizedByTier = eventOrganizers
-    .reduce((acc, organizer) => {
-      const tier = organizer.tier
-      if (!acc[tier]) acc[tier] = []
-      acc[tier].push(organizer)
-      return acc
-    }, {} as Record<string, typeof eventOrganizers>)
+  // Group organizers by tier
+  const organizedByTier = eventOrganizers.reduce((acc, organizer) => {
+    const tier = organizer.tier
+    if (!acc[tier]) acc[tier] = []
+    acc[tier].push(organizer)
+    return acc
+  }, {} as Record<string, typeof eventOrganizers>)
 
   // Sort tiers numerically
   const sortedTiers = Object.keys(organizedByTier).sort((a, b) => parseInt(a) - parseInt(b))
 
-  // Get grid classes based on number of items in tier
+  // Get grid classes for Tiers 1 & 2
   const getGridClasses = (count: number) => {
     if (count === 1) return "grid-cols-1 max-w-md"
     if (count === 2) return "grid-cols-1 md:grid-cols-2 max-w-2xl"
@@ -39,12 +38,48 @@ export function EventOrganizersSection() {
           Event Organizers
         </motion.h2>
 
-        {/* Render organizers by tier */}
         <div className="space-y-16">
           {sortedTiers.map((tier) => {
             const tiersOrganizers = organizedByTier[tier]
+
+            // Special layout for Tier 3
+            if (tier === "3" && tiersOrganizers.length > 0) {
+              const webmaster = tiersOrganizers[0]
+              return (
+                <div key={tier} className="flex justify-center">
+                  <motion.div
+                    initial={{ opacity: 0, scale: 0.8, y: 50 }}
+                    whileInView={{ opacity: 1, scale: 1, y: 0 }}
+                    whileHover={{ scale: 1.05, y: -10, boxShadow: "0 25px 50px -12px rgba(0, 255, 255, 0.25)" }}
+                    transition={{ duration: 0.7, type: "spring", stiffness: 100 }}
+                    className="max-w-xl w-full"
+                  >
+                    <Card className="bg-gradient-to-br from-gray-900 via-black to-gray-900 border-gray-700/50 flex flex-col md:flex-row items-center p-6 md:p-8 rounded-2xl">
+                      <div className="relative mb-6 md:mb-0 md:mr-8 flex-shrink-0">
+                        <div className="absolute -inset-1.5 bg-gradient-to-r from-emerald-500 to-cyan-500 rounded-full blur-md animate-pulse"></div>
+                        <img
+                          src={webmaster.image || "/placeholder.svg"}
+                          alt={webmaster.name}
+                          className="relative w-40 h-40 rounded-full object-cover bg-gray-800 border-2 border-gray-700"
+                        />
+                      </div>
+                      <div className="text-center md:text-left">
+                        <CardTitle className="text-3xl bg-gradient-to-r from-emerald-400 to-cyan-400 bg-clip-text text-transparent mb-2">
+                          {webmaster.name}
+                        </CardTitle>
+                        <p className="text-xl text-gray-300 mb-4">{webmaster.designation}</p>
+                        <div className="inline-block bg-blue-500/20 text-blue-300 font-semibold rounded-full px-4 py-1 text-sm">
+                          {webmaster.role}
+                        </div>
+                      </div>
+                    </Card>
+                  </motion.div>
+                </div>
+              )
+            }
+
+            // Default grid layout for other tiers
             const gridClasses = getGridClasses(tiersOrganizers.length)
-            
             return (
               <div key={tier} className="w-full">
                 <div className={`grid ${gridClasses} gap-8 mx-auto`}>

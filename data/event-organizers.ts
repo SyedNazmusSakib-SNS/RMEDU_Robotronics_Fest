@@ -78,12 +78,12 @@ export const eventOrganizers: EventOrganizer[] = [
     role: "Head of Micromouse Segment",
     image: "/hemel.jpg",
     tier: "2",
-  }
-//   {
-//     name: "Syed Nazmus Sakib",
-//     designation: "WebMaster",
-//     role: "",
-//     image: "/sakib.jpg",
-//     tier: "2",
-//   },
+  },
+  {
+    name: "Syed Nazmus Sakib",
+    designation: "WebMaster",
+    role: "Robotronics Fest",
+    image: "/sakib.jpg",
+    tier: "3",
+  },
 ];
