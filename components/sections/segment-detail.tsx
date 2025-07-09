@@ -34,7 +34,7 @@ export function SegmentDetail({ segment }: SegmentDetailProps) {
             <p className="text-xl text-gray-300">{segment.description}</p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12">
             <Card className="bg-gradient-to-br from-yellow-500/20 to-orange-500/20 border-yellow-500/30">
               <CardHeader className="text-center">
                 <Trophy className="w-12 h-12 mx-auto mb-4 text-yellow-400" />
@@ -52,16 +52,6 @@ export function SegmentDetail({ segment }: SegmentDetailProps) {
               </CardHeader>
               <CardContent className="text-center">
                 <div className="text-3xl font-bold text-white">{segment.prizes.second}</div>
-              </CardContent>
-            </Card>
-
-            <Card className="bg-gradient-to-br from-orange-600/20 to-red-600/20 border-orange-600/30">
-              <CardHeader className="text-center">
-                <Trophy className="w-12 h-12 mx-auto mb-4 text-orange-600" />
-                <CardTitle className="text-2xl text-orange-600">3rd Prize</CardTitle>
-              </CardHeader>
-              <CardContent className="text-center">
-                <div className="text-3xl font-bold text-white">{segment.prizes.third}</div>
               </CardContent>
             </Card>
           </div>

@@ -7,7 +7,7 @@ export const segments: Segment[] = [
     color: "from-red-500 to-pink-600",
     icon: "⚽",
     description: "Robot soccer competition",
-    prizes: { first: "25,000 BDT", second: "15,000 BDT", third: "10,000 BDT" },
+    prizes: { first: "25,000 BDT", second: "15,000 BDT" },
   },
   {
     id: "lfr",
@@ -15,7 +15,7 @@ export const segments: Segment[] = [
     color: "from-blue-500 to-cyan-600",
     icon: "🛤️",
     description: "Line Following Robot challenge",
-    prizes: { first: "25,000 BDT", second: "15,000 BDT", third: "10,000 BDT" },
+    prizes: { first: "25,000 BDT", second: "15,000 BDT" },
   },
   {
     id: "micromouse",
@@ -23,7 +23,7 @@ export const segments: Segment[] = [
     color: "from-green-500 to-emerald-600",
     icon: "🐭",
     description: "Maze-solving robot competition",
-    prizes: { first: "25,000 BDT", second: "15,000 BDT", third: "10,000 BDT" },
+    prizes: { first: "25,000 BDT", second: "15,000 BDT" },
   },
   {
     id: "project-showcase",
@@ -31,7 +31,7 @@ export const segments: Segment[] = [
     color: "from-blue-500 to-cyan-600",
     icon: "🚀",
     description: "Innovation and project presentation",
-    prizes: { first: "25,000 BDT", second: "15,000 BDT", third: "10,000 BDT" },
+    prizes: { first: "25,000 BDT", second: "15,000 BDT" },
   },
   {
     id: "datathon",
@@ -39,6 +39,6 @@ export const segments: Segment[] = [
     color: "from-red-500 to-pink-600",
     icon: "📊",
     description: "Data science and AI competition",
-    prizes: { first: "25,000 BDT", second: "15,000 BDT", third: "10,000 BDT" },
+    prizes: { first: "25,000 BDT", second: "15,000 BDT" },
   },
 ]
