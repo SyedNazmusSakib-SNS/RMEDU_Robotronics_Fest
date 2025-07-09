@@ -89,9 +89,11 @@ export function SegmentDetail({ segment }: SegmentDetailProps) {
                     <FileText className="w-4 h-4 mr-2" />
                     Detailed Rules
                   </Button>
-                  <Button className="bg-gradient-to-r from-green-500 to-emerald-500 hover:opacity-90">
-                    <ExternalLink className="w-4 h-4 mr-2" />
-                    Register Now
+                  <Button asChild className="bg-gradient-to-r from-green-500 to-emerald-500 hover:opacity-90">
+                    <a href="https://forms.gle/XJgLtHbrrcXXxp8L6" target="_blank" rel="noopener noreferrer">
+                      <ExternalLink className="w-4 h-4 mr-2" />
+                      Register Now
+                    </a>
                   </Button>
                 </div>
               </div>

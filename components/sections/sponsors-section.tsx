@@ -3,15 +3,15 @@
 import { motion } from "framer-motion"
 
 const sponsors = [
+    { 
+    name: "SincoS", 
+    logo: "/sincoS.png",
+    description: "Technology Solutions"
+  },
   { 
     name: "TechShopBD", 
     logo: "/techshopbd.png",
     description: "Tech Innovation Partner"
-  },
-  { 
-    name: "SincoS", 
-    logo: "/sincoS.png",
-    description: "Technology Solutions"
   },
   { 
     name: "Dot Internet", 
