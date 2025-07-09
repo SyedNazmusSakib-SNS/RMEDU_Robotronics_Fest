@@ -6,7 +6,7 @@ export const organizers: Organizer[] = [
   {
     name: "Dr. Sejuti Rahman",
     designation: "Chairperson and Associate Professor",
-    role: "Event Coveyor",
+    role: "Event Convener",
     phone: "+8001836800864",
     image: "/chairperson.jpg", // Corrected
     tier: "head",
@@ -14,7 +14,7 @@ export const organizers: Organizer[] = [
   {
     name: "Dr. MD Mehedi Hasan",
     designation: "Associate Professor",
-    role: "Event Coveyor and Club Moderator",
+    role: "Event Co-convener and Club Moderator",
     phone: "+8801707034821",
     image: "/mehedi_sir.jpg", // Corrected
     tier: "head",
