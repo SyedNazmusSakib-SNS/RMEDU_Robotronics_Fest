@@ -6,15 +6,15 @@ export const organizers: Organizer[] = [
   {
     name: "Dr. Sejuti Rahman",
     designation: "Chairperson and Associate Professor",
-    role: "Event Convener",
+    role: "Convener",
     phone: "+8001836800864",
     image: "/chairperson.jpg", // Corrected
     tier: "head",
   },
   {
     name: "Dr. MD Mehedi Hasan",
-    designation: "Associate Professor",
-    role: "Event Co-convener and Club Moderator",
+    designation: "Assistant Professor",
+    role: "Co-convener",
     phone: "+8801707034821",
     image: "/mehedi_sir.jpg", // Corrected
     tier: "head",
@@ -22,7 +22,7 @@ export const organizers: Organizer[] = [
   {
     name: "Md. Ariful Islam",
     designation: "Assistant Professor",
-    role: "Coveyor of Robosoccer Segment",
+    role: "Director of Robosoccer Segment",
     phone: "+8801677696189",
     image: "/ariful_sir.jpg", // Corrected
     tier: "second",
@@ -30,7 +30,7 @@ export const organizers: Organizer[] = [
   {
     name: "Jubair Ahmed Sourve",
     designation: "Lecturer",
-    role: "Coveyor of LFR Segment",
+    role: "Director of LFR Segment",
     phone: "+8801521331734",
     image: "/jubair_sir.jpg", // Corrected
     tier: "second",
@@ -38,15 +38,15 @@ export const organizers: Organizer[] = [
   {
     name: "Shifat-E-Arman",
     designation: "Assistant Professor",
-    role: "Coveyor of Micromouse Segment",
+    role: "Director of Micromouse Segment",
     phone: "+8801762333999",
     image: "/Shifat_sir.jpg", // Corrected
     tier: "second",
   },
   {
     name: "Dr. MD Mehedi Hasan",
-    designation: "Associate Professor",
-    role: "Coveyor of Datathon Segment",
+    designation: "Assistant Professor",
+    role: "Director of Datathon Segment",
     phone: "",
     image: "/mehedi_sir.jpg", // Corrected (This was also incorrect)
     tier: "second",
@@ -54,7 +54,7 @@ export const organizers: Organizer[] = [
   {
     name: "Dr. Abhishek Kumar Ghosh",
     designation: "Assistant Professor",
-    role: "Coveyor of Project Showcase Segment",
+    role: "Director of Project Showcase Segment",
     phone: "+8801816925531",
     image: "/Abhishek_sir.jpg", // Corrected
     tier: "second",
