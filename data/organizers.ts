@@ -28,7 +28,7 @@ export const organizers: Organizer[] = [
     tier: "second",
   },
   {
-    name: "Jubair Ahmed Sourve",
+    name: "Md. Jubair Ahmed Sourv",
     designation: "Lecturer",
     role: "Director of LFR Segment",
     phone: "+8801521331734",
