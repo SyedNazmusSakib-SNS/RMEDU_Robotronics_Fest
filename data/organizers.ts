@@ -22,7 +22,7 @@ export const organizers: Organizer[] = [
   {
     name: "Md. Ariful Islam",
     designation: "Assistant Professor",
-    role: "Director of Robosoccer Segment",
+    role: "Director of SoccerBot Segment",
     phone: "+8801677696189",
     image: "/ariful_sir.jpg", // Corrected
     tier: "second",
@@ -46,7 +46,7 @@ export const organizers: Organizer[] = [
   {
     name: "Dr. MD Mehedi Hasan",
     designation: "Assistant Professor",
-    role: "Director of Datathon Segment",
+    role: "Director of DU AI Challenge",
     phone: "",
     image: "/mehedi_sir.jpg", // Corrected (This was also incorrect)
     tier: "second",

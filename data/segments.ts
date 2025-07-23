@@ -6,7 +6,7 @@ export const segments: Segment[] = [
     name: "SOCCERBOT",
     color: "from-blue-500 to-cyan-600",
     icon: "⚽",
-    description: "Robot soccer competition",
+    description: "SoccerBot competition",
     prizes: { first: "25,000 BDT", second: "15,000 BDT" },
     rulesLink: "https://drive.google.com/drive/folders/15y0TJSikhjg8cfyw0gZ-EaIJFMdivHbo",
   },
