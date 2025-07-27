@@ -35,7 +35,7 @@ export const segments: Segment[] = [
     icon: "🚀",
     description: "Innovation and project presentation",
     prizes: { first: "25,000 BDT", second: "15,000 BDT" },
-    rulesLink: "https://drive.google.com/drive/folders/1CkswuAoOCcYw49p_K0RulPX_0lCm-WOa?usp=drive_link",
+    rulesLink: "https://docs.google.com/document/d/1IdlzQLH7o4qBHaqWiwCI-8g-mFDyxQJDIgPDYn4-0kE/edit?usp=drivesdk",
   },
   {
     id: "datathon",
