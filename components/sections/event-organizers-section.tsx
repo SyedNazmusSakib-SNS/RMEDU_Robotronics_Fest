@@ -17,13 +17,106 @@ export function EventOrganizersSection() {
   // Sort tiers numerically
   const sortedTiers = Object.keys(organizedByTier).sort((a, b) => parseInt(a) - parseInt(b))
 
-  // Get grid classes for Tiers 1 & 2
+  // Get grid classes with better 5-item layout
   const getGridClasses = (count: number) => {
     if (count === 1) return "grid-cols-1 max-w-md"
     if (count === 2) return "grid-cols-1 md:grid-cols-2 max-w-2xl"
     if (count === 3) return "grid-cols-1 md:grid-cols-2 lg:grid-cols-3 max-w-4xl"
     if (count === 4) return "grid-cols-1 md:grid-cols-2 lg:grid-cols-4 max-w-6xl"
+    if (count === 5) return "grid-cols-1 md:grid-cols-2 lg:grid-cols-3 max-w-4xl" // 3 cols for better 5-item layout
     return "grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-5"
+  }
+
+  // Special function to render 5 items in 3+2 layout
+  const renderFiveItemGrid = (organizers: typeof eventOrganizers, tier: string) => {
+    const firstRow = organizers.slice(0, 3)
+    const secondRow = organizers.slice(3, 5)
+    
+    return (
+      <div key={tier} className="w-full space-y-8">
+        {/* First row - 3 items */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-4xl mx-auto">
+          {firstRow.map((organizer, index) => (
+            <motion.div
+              key={organizer.name}
+              initial={{ opacity: 0, y: 50 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: index * 0.1 }}
+            >
+              <Card className="bg-gradient-to-br from-gray-900 to-black border-gray-700 hover:border-emerald-500/50 transition-all duration-300 h-[400px]">
+                <CardHeader className="text-center pb-4">
+                  <div className="w-32 h-32 mx-auto mb-4 rounded-full overflow-hidden bg-gradient-to-br from-emerald-400 to-blue-400 p-1">
+                    <img
+                      src={organizer.image || "/placeholder.svg"}
+                      alt={organizer.name}
+                      className="w-full h-full rounded-full object-cover bg-gray-800"
+                    />
+                  </div>
+                  <CardTitle className="text-xl text-white h-14 flex items-center justify-center">
+                    <span className="line-clamp-2 text-center">{organizer.name}</span>
+                  </CardTitle>
+                  <CardDescription className="text-emerald-400 h-12 flex items-center justify-center">
+                    <span className="line-clamp-2 text-center">{organizer.designation}</span>
+                  </CardDescription>
+                </CardHeader>
+                <CardContent className="text-center space-y-2">
+                  <div className="text-blue-400 font-semibold h-12 flex items-center justify-center">
+                    <span className="line-clamp-2 text-center">{organizer.role}</span>
+                  </div>
+                  {organizer.phone && (
+                    <div className="flex items-center justify-center text-gray-300 h-6">
+                      <Phone className="w-4 h-4 mr-2" />
+                      {organizer.phone}
+                    </div>
+                  )}
+                </CardContent>
+              </Card>
+            </motion.div>
+          ))}
+        </div>
+        
+        {/* Second row - 2 items centered */}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-2xl mx-auto">
+          {secondRow.map((organizer, index) => (
+            <motion.div
+              key={organizer.name}
+              initial={{ opacity: 0, y: 50 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: (index + 3) * 0.1 }}
+            >
+              <Card className="bg-gradient-to-br from-gray-900 to-black border-gray-700 hover:border-emerald-500/50 transition-all duration-300 h-[400px]">
+                <CardHeader className="text-center pb-4">
+                  <div className="w-32 h-32 mx-auto mb-4 rounded-full overflow-hidden bg-gradient-to-br from-emerald-400 to-blue-400 p-1">
+                    <img
+                      src={organizer.image || "/placeholder.svg"}
+                      alt={organizer.name}
+                      className="w-full h-full rounded-full object-cover bg-gray-800"
+                    />
+                  </div>
+                  <CardTitle className="text-xl text-white h-14 flex items-center justify-center">
+                    <span className="line-clamp-2 text-center">{organizer.name}</span>
+                  </CardTitle>
+                  <CardDescription className="text-emerald-400 h-12 flex items-center justify-center">
+                    <span className="line-clamp-2 text-center">{organizer.designation}</span>
+                  </CardDescription>
+                </CardHeader>
+                <CardContent className="text-center space-y-2">
+                  <div className="text-blue-400 font-semibold h-12 flex items-center justify-center">
+                    <span className="line-clamp-2 text-center">{organizer.role}</span>
+                  </div>
+                  {organizer.phone && (
+                    <div className="flex items-center justify-center text-gray-300 h-6">
+                      <Phone className="w-4 h-4 mr-2" />
+                      {organizer.phone}
+                    </div>
+                  )}
+                </CardContent>
+              </Card>
+            </motion.div>
+          ))}
+        </div>
+      </div>
+    )
   }
 
   return (
@@ -35,14 +128,14 @@ export function EventOrganizersSection() {
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
         >
-          Event Organizers
+          Student Organizers
         </motion.h2>
 
         <div className="space-y-16">
           {sortedTiers.map((tier) => {
             const tiersOrganizers = organizedByTier[tier]
 
-            // Special layout for Tier 3
+            // Special layout for Tier 3 (Webmaster)
             if (tier === "3" && tiersOrganizers.length > 0) {
               const webmaster = tiersOrganizers[0]
               return (
@@ -78,7 +171,12 @@ export function EventOrganizersSection() {
               )
             }
 
-            // Default grid layout for other tiers
+            // Special handling for 5 items (3+2 layout)
+            if (tiersOrganizers.length === 5) {
+              return renderFiveItemGrid(tiersOrganizers, tier)
+            }
+
+            // Default grid layout for other counts
             const gridClasses = getGridClasses(tiersOrganizers.length)
             return (
               <div key={tier} className="w-full">

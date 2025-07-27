@@ -31,6 +31,131 @@ const sponsors = [
 ]
 
 export function SponsorsSection() {
+  // Split sponsors into two rows: 3 in first row, 2 in second row
+  const firstRowSponsors = sponsors.slice(0, 3)
+  const secondRowSponsors = sponsors.slice(3, 5)
+
+  const renderSponsorCard = (sponsor: typeof sponsors[0], index: number) => (
+    <motion.div
+      key={sponsor.name}
+      className="group relative"
+      initial={{ opacity: 0, y: 80, scale: 0.8 }}
+      whileInView={{ opacity: 1, y: 0, scale: 1 }}
+      transition={{ 
+        duration: 0.8, 
+        delay: index * 0.2,
+        type: "spring",
+        stiffness: 100
+      }}
+    >
+      {/* Main Card */}
+      <motion.div
+        className="relative bg-gradient-to-br from-white/10 to-white/5 backdrop-blur-xl rounded-3xl p-8 border border-white/20 overflow-hidden h-64 flex flex-col items-center justify-center"
+        whileHover={{ 
+          scale: 1.05, 
+          rotateY: 5,
+          rotateX: 5,
+        }}
+        transition={{ duration: 0.3 }}
+        style={{
+          transformStyle: "preserve-3d",
+        }}
+      >
+        {/* Glowing Background */}
+        <div className="absolute inset-0 bg-gradient-to-br from-cyan-500/10 via-pink-500/10 to-purple-500/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+        
+        {/* Animated Border */}
+        <motion.div
+          className="absolute inset-0 rounded-3xl border-2 border-transparent bg-gradient-to-r from-cyan-400 via-pink-400 to-purple-400 opacity-0 group-hover:opacity-100"
+          style={{
+            background: "linear-gradient(45deg, #06b6d4, #ec4899, #8b5cf6)",
+            WebkitMask: "linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0)",
+            WebkitMaskComposite: "xor",
+            maskComposite: "exclude",
+            padding: "2px",
+          }}
+          animate={{
+            background: [
+              "linear-gradient(45deg, #06b6d4, #ec4899, #8b5cf6)",
+              "linear-gradient(45deg, #8b5cf6, #06b6d4, #ec4899)",
+              "linear-gradient(45deg, #ec4899, #8b5cf6, #06b6d4)",
+              "linear-gradient(45deg, #06b6d4, #ec4899, #8b5cf6)",
+            ]
+          }}
+          transition={{ duration: 3, repeat: Number.POSITIVE_INFINITY }}
+        />
+
+        {/* Logo Container */}
+        <motion.div
+          className="relative z-10 mb-6"
+          whileHover={{ scale: 1.1, rotate: 5 }}
+          transition={{ duration: 0.3 }}
+        >
+          <div className="w-32 h-32 bg-white/90 backdrop-blur-sm rounded-2xl flex items-center justify-center shadow-2xl shadow-black/20 group-hover:shadow-cyan-500/20 transition-all duration-500">
+            <img
+              src={sponsor.logo}
+              alt={sponsor.name}
+              className="max-w-28 max-h-28 object-contain"
+            />
+          </div>
+        </motion.div>
+
+        {/* Sponsor Info */}
+        <div className="relative z-10 text-center">
+          <h3 className="text-2xl font-bold text-white mb-2 group-hover:text-cyan-400 transition-colors duration-300">
+            {sponsor.name}
+          </h3>
+          <p className="text-gray-400 text-sm group-hover:text-white transition-colors duration-300">
+            {sponsor.description}
+          </p>
+        </div>
+
+        {/* Floating Elements */}
+        <motion.div
+          className="absolute top-4 right-4 w-3 h-3 bg-cyan-400 rounded-full opacity-60"
+          animate={{
+            scale: [1, 1.5, 1],
+            opacity: [0.6, 1, 0.6],
+          }}
+          transition={{
+            duration: 2,
+            repeat: Number.POSITIVE_INFINITY,
+            delay: index * 0.5,
+          }}
+        />
+        <motion.div
+          className="absolute bottom-4 left-4 w-2 h-2 bg-pink-400 rounded-full opacity-60"
+          animate={{
+            scale: [1, 1.3, 1],
+            opacity: [0.6, 1, 0.6],
+          }}
+          transition={{
+            duration: 2.5,
+            repeat: Number.POSITIVE_INFINITY,
+            delay: index * 0.3,
+          }}
+        />
+
+        {/* Shine Effect */}
+        <motion.div
+          className="absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent opacity-0 group-hover:opacity-100 -translate-x-full group-hover:translate-x-full transition-all duration-1000"
+          style={{
+            transform: "skewX(-45deg)",
+          }}
+        />
+      </motion.div>
+
+      {/* Reflection Effect */}
+      <motion.div
+        className="absolute top-full left-0 right-0 h-32 bg-gradient-to-b from-white/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 rounded-b-3xl"
+        style={{
+          transform: "perspective(200px) rotateX(45deg)",
+          transformOrigin: "top",
+        }}
+      />
+    </motion.div>
+  )
+
   return (
     <section className="py-32 bg-gradient-to-br from-black via-purple-900/20 to-blue-900/20 relative overflow-hidden">
       {/* Animated Background Elements */}
@@ -133,128 +258,17 @@ export function SponsorsSection() {
           </motion.p>
         </motion.div>
 
-        {/* Sponsors Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-12 max-w-6xl mx-auto">
-          {sponsors.map((sponsor, index) => (
-            <motion.div
-              key={sponsor.name}
-              className="group relative"
-              initial={{ opacity: 0, y: 80, scale: 0.8 }}
-              whileInView={{ opacity: 1, y: 0, scale: 1 }}
-              transition={{ 
-                duration: 0.8, 
-                delay: index * 0.2,
-                type: "spring",
-                stiffness: 100
-              }}
-            >
-              {/* Main Card */}
-              <motion.div
-                className="relative bg-gradient-to-br from-white/10 to-white/5 backdrop-blur-xl rounded-3xl p-8 border border-white/20 overflow-hidden h-64 flex flex-col items-center justify-center"
-                whileHover={{ 
-                  scale: 1.05, 
-                  rotateY: 5,
-                  rotateX: 5,
-                }}
-                transition={{ duration: 0.3 }}
-                style={{
-                  transformStyle: "preserve-3d",
-                }}
-              >
-                {/* Glowing Background */}
-                <div className="absolute inset-0 bg-gradient-to-br from-cyan-500/10 via-pink-500/10 to-purple-500/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-                
-                {/* Animated Border */}
-                <motion.div
-                  className="absolute inset-0 rounded-3xl border-2 border-transparent bg-gradient-to-r from-cyan-400 via-pink-400 to-purple-400 opacity-0 group-hover:opacity-100"
-                  style={{
-                    background: "linear-gradient(45deg, #06b6d4, #ec4899, #8b5cf6)",
-                    WebkitMask: "linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0)",
-                    WebkitMaskComposite: "xor",
-                    maskComposite: "exclude",
-                    padding: "2px",
-                  }}
-                  animate={{
-                    background: [
-                      "linear-gradient(45deg, #06b6d4, #ec4899, #8b5cf6)",
-                      "linear-gradient(45deg, #8b5cf6, #06b6d4, #ec4899)",
-                      "linear-gradient(45deg, #ec4899, #8b5cf6, #06b6d4)",
-                      "linear-gradient(45deg, #06b6d4, #ec4899, #8b5cf6)",
-                    ]
-                  }}
-                  transition={{ duration: 3, repeat: Number.POSITIVE_INFINITY }}
-                />
+        {/* Sponsors Grid - 3+2 Layout */}
+        <div className="max-w-6xl mx-auto space-y-12">
+          {/* First Row - 3 Sponsors */}
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12 max-w-4xl mx-auto">
+            {firstRowSponsors.map((sponsor, index) => renderSponsorCard(sponsor, index))}
+          </div>
 
-                {/* Logo Container */}
-                <motion.div
-                  className="relative z-10 mb-6"
-                  whileHover={{ scale: 1.1, rotate: 5 }}
-                  transition={{ duration: 0.3 }}
-                >
-                  <div className="w-32 h-32 bg-white/90 backdrop-blur-sm rounded-2xl flex items-center justify-center shadow-2xl shadow-black/20 group-hover:shadow-cyan-500/20 transition-all duration-500">
-                    <img
-                      src={sponsor.logo}
-                      alt={sponsor.name}
-                      className="max-w-28 max-h-28 object-contain"
-                    />
-                  </div>
-                </motion.div>
-
-                {/* Sponsor Info */}
-                <div className="relative z-10 text-center">
-                  <h3 className="text-2xl font-bold text-white mb-2 group-hover:text-cyan-400 transition-colors duration-300">
-                    {sponsor.name}
-                  </h3>
-                  <p className="text-gray-400 text-sm group-hover:text-white transition-colors duration-300">
-                    {sponsor.description}
-                  </p>
-                </div>
-
-                {/* Floating Elements */}
-                <motion.div
-                  className="absolute top-4 right-4 w-3 h-3 bg-cyan-400 rounded-full opacity-60"
-                  animate={{
-                    scale: [1, 1.5, 1],
-                    opacity: [0.6, 1, 0.6],
-                  }}
-                  transition={{
-                    duration: 2,
-                    repeat: Number.POSITIVE_INFINITY,
-                    delay: index * 0.5,
-                  }}
-                />
-                <motion.div
-                  className="absolute bottom-4 left-4 w-2 h-2 bg-pink-400 rounded-full opacity-60"
-                  animate={{
-                    scale: [1, 1.3, 1],
-                    opacity: [0.6, 1, 0.6],
-                  }}
-                  transition={{
-                    duration: 2.5,
-                    repeat: Number.POSITIVE_INFINITY,
-                    delay: index * 0.3,
-                  }}
-                />
-
-                {/* Shine Effect */}
-                <motion.div
-                  className="absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent opacity-0 group-hover:opacity-100 -translate-x-full group-hover:translate-x-full transition-all duration-1000"
-                  style={{
-                    transform: "skewX(-45deg)",
-                  }}
-                />
-              </motion.div>
-
-              {/* Reflection Effect */}
-              <motion.div
-                className="absolute top-full left-0 right-0 h-32 bg-gradient-to-b from-white/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 rounded-b-3xl"
-                style={{
-                  transform: "perspective(200px) rotateX(45deg)",
-                  transformOrigin: "top",
-                }}
-              />
-            </motion.div>
-          ))}
+          {/* Second Row - 2 Sponsors (Centered) */}
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-12 max-w-2xl mx-auto">
+            {secondRowSponsors.map((sponsor, index) => renderSponsorCard(sponsor, index + 3))}
+          </div>
         </div>
 
         {/* Thank You Message */}

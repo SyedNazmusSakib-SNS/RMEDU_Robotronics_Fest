@@ -1,11 +1,15 @@
 "use client"
 
 import { motion } from "framer-motion"
-import { Phone } from "lucide-react"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { organizers } from "@/data/organizers"
 
 export function OrganizersSection() {
+  // Filter organizers by tier for better organization
+  const conveners = organizers.filter((org) => org.tier === "head")
+  const directors = organizers.filter((org) => org.tier === "second")
+  const advisers = organizers.filter((org) => org.tier === "third")
+
   return (
     <section className="py-20 bg-black">
       <div className="container mx-auto px-4">
@@ -18,20 +22,19 @@ export function OrganizersSection() {
           Organizers
         </motion.h2>
 
-        {/* Top Two Organizers */}
+        {/* Convener and Co-convener (Top Row) */}
         <div className="mb-16">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-2xl mx-auto">
-            {organizers
-              .filter((org) => org.tier === "head")
-              .slice(0, 2)
-              .map((organizer, index) => (
+          <div className="flex justify-center">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-3xl">
+              {conveners.map((organizer, index) => (
                 <motion.div
                   key={organizer.name}
                   initial={{ opacity: 0, y: 50 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.5, delay: index * 0.1 }}
+                  className="flex justify-center"
                 >
-                  <Card className="bg-gradient-to-br from-gray-900 to-black border-gray-700 hover:border-cyan-500/50 transition-all duration-300 h-[400px]">
+                  <Card className="bg-gradient-to-br from-gray-900 to-black border-gray-700 hover:border-cyan-500/50 transition-all duration-300 h-[420px] w-full max-w-[300px]">
                     <CardHeader className="text-center pb-4">
                       <div className="w-32 h-32 mx-auto mb-4 rounded-full overflow-hidden bg-gradient-to-br from-cyan-400 to-pink-400 p-1">
                         <img
@@ -44,7 +47,7 @@ export function OrganizersSection() {
                         <span className="line-clamp-2 text-center">{organizer.name}</span>
                       </CardTitle>
                       <CardDescription className="text-cyan-400 h-12 flex items-center justify-center">
-                        <span className="line-clamp-2 text-center">{organizer.designation}</span>
+                        <span className="line-clamp-2 text-center text-sm">{organizer.designation}</span>
                       </CardDescription>
                     </CardHeader>
                     <CardContent className="text-center space-y-2">
@@ -55,47 +58,87 @@ export function OrganizersSection() {
                   </Card>
                 </motion.div>
               ))}
+            </div>
           </div>
         </div>
 
-        {/* Bottom Five Organizers */}
-        <div>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-6">
-            {organizers
-              .filter((org) => org.tier === "second" || org.tier === "third")
-              .slice(0, 5)
-              .map((organizer, index) => (
+        {/* Directors (Second Row) */}
+        <div className="mb-16">
+          <div className="flex justify-center">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 max-w-6xl">
+              {directors.map((organizer, index) => (
                 <motion.div
                   key={organizer.name}
                   initial={{ opacity: 0, y: 50 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.5, delay: index * 0.1 }}
+                  className="flex justify-center"
                 >
-                  <Card className="bg-gradient-to-br from-gray-900 to-black border-gray-700 hover:border-cyan-500/50 transition-all duration-300 h-[400px]">
+                  <Card className="bg-gradient-to-br from-gray-900 to-black border-gray-700 hover:border-cyan-500/50 transition-all duration-300 h-[420px] w-full max-w-[280px]">
                     <CardHeader className="text-center pb-4">
-                      <div className="w-32 h-32 mx-auto mb-4 rounded-full overflow-hidden bg-gradient-to-br from-cyan-400 to-pink-400 p-1">
+                      <div className="w-28 h-28 mx-auto mb-4 rounded-full overflow-hidden bg-gradient-to-br from-cyan-400 to-pink-400 p-1">
                         <img
                           src={organizer.image || "/placeholder.svg"}
                           alt={organizer.name}
                           className="w-full h-full rounded-full object-cover bg-gray-800"
                         />
                       </div>
-                      <CardTitle className="text-xl text-white h-14 flex items-center justify-center">
+                      <CardTitle className="text-lg text-white h-14 flex items-center justify-center">
                         <span className="line-clamp-2 text-center">{organizer.name}</span>
                       </CardTitle>
                       <CardDescription className="text-cyan-400 h-12 flex items-center justify-center">
-                        <span className="line-clamp-2 text-center">{organizer.designation}</span>
+                        <span className="line-clamp-2 text-center text-sm">{organizer.designation}</span>
                       </CardDescription>
                     </CardHeader>
                     <CardContent className="text-center space-y-2">
-                      <div className="text-pink-400 font-semibold h-12 flex items-center justify-center">
-                        <span className="line-clamp-2 text-center">{organizer.role}</span>
+                      <div className="text-pink-400 font-semibold h-16 flex items-center justify-center">
+                        <span className="line-clamp-3 text-center text-sm">{organizer.role}</span>
                       </div>
-
                     </CardContent>
                   </Card>
                 </motion.div>
               ))}
+            </div>
+          </div>
+        </div>
+
+        {/* Advisers (Final Row) */}
+        <div>
+          <div className="flex justify-center">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-2xl">
+              {advisers.map((organizer, index) => (
+                <motion.div
+                  key={`${organizer.name}-${organizer.role}`}
+                  initial={{ opacity: 0, y: 50 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.5, delay: index * 0.1 }}
+                  className="flex justify-center"
+                >
+                  <Card className="bg-gradient-to-br from-gray-900 to-black border-gray-700 hover:border-cyan-500/50 transition-all duration-300 h-[420px] w-full max-w-[300px]">
+                    <CardHeader className="text-center pb-4">
+                      <div className="w-28 h-28 mx-auto mb-4 rounded-full overflow-hidden bg-gradient-to-br from-cyan-400 to-pink-400 p-1">
+                        <img
+                          src={organizer.image || "/placeholder.svg"}
+                          alt={organizer.name}
+                          className="w-full h-full rounded-full object-cover bg-gray-800"
+                        />
+                      </div>
+                      <CardTitle className="text-lg text-white h-14 flex items-center justify-center">
+                        <span className="line-clamp-2 text-center">{organizer.name}</span>
+                      </CardTitle>
+                      <CardDescription className="text-cyan-400 h-12 flex items-center justify-center">
+                        <span className="line-clamp-2 text-center text-sm">{organizer.designation}</span>
+                      </CardDescription>
+                    </CardHeader>
+                    <CardContent className="text-center space-y-2">
+                      <div className="text-pink-400 font-semibold h-16 flex items-center justify-center">
+                        <span className="line-clamp-3 text-center text-sm">{organizer.role}</span>
+                      </div>
+                    </CardContent>
+                  </Card>
+                </motion.div>
+              ))}
+            </div>
           </div>
         </div>
       </div>
