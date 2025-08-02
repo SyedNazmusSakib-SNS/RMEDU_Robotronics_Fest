@@ -28,14 +28,15 @@ const sponsors = [
     logo: "/dot-internet.png",
     description: ""
   },
+  { 
+    name: "Prothom Alo", 
+    logo: "/prothom_alo.png",
+    description: ""
+  }
 ]
 
 export function SponsorsSection() {
-  // Split sponsors into two rows: 3 in first row, 2 in second row
-  const firstRowSponsors = sponsors.slice(0, 3)
-  const secondRowSponsors = sponsors.slice(3, 5)
-
-  const renderSponsorCard = (sponsor: typeof sponsors[0], index: number) => (
+  const renderSponsorCard = (sponsor, index) => (
     <motion.div
       key={sponsor.name}
       className="group relative"
@@ -82,7 +83,7 @@ export function SponsorsSection() {
               "linear-gradient(45deg, #06b6d4, #ec4899, #8b5cf6)",
             ]
           }}
-          transition={{ duration: 3, repeat: Number.POSITIVE_INFINITY }}
+          transition={{ duration: 3, repeat: Infinity }}
         />
 
         {/* Logo Container */}
@@ -119,7 +120,7 @@ export function SponsorsSection() {
           }}
           transition={{
             duration: 2,
-            repeat: Number.POSITIVE_INFINITY,
+            repeat: Infinity,
             delay: index * 0.5,
           }}
         />
@@ -131,7 +132,7 @@ export function SponsorsSection() {
           }}
           transition={{
             duration: 2.5,
-            repeat: Number.POSITIVE_INFINITY,
+            repeat: Infinity,
             delay: index * 0.3,
           }}
         />
@@ -170,7 +171,7 @@ export function SponsorsSection() {
           }}
           transition={{
             duration: 12,
-            repeat: Number.POSITIVE_INFINITY,
+            repeat: Infinity,
             ease: "easeInOut",
           }}
         />
@@ -183,7 +184,7 @@ export function SponsorsSection() {
           }}
           transition={{
             duration: 15,
-            repeat: Number.POSITIVE_INFINITY,
+            repeat: Infinity,
             ease: "easeInOut",
           }}
         />
@@ -204,7 +205,7 @@ export function SponsorsSection() {
             }}
             transition={{
               duration: Math.random() * 4 + 3,
-              repeat: Number.POSITIVE_INFINITY,
+              repeat: Infinity,
               delay: Math.random() * 2,
             }}
           />
@@ -226,7 +227,7 @@ export function SponsorsSection() {
             fill="none"
             initial={{ pathLength: 0 }}
             animate={{ pathLength: 1 }}
-            transition={{ duration: 4, repeat: Number.POSITIVE_INFINITY }}
+            transition={{ duration: 4, repeat: Infinity }}
           />
         </svg>
       </div>
@@ -244,7 +245,7 @@ export function SponsorsSection() {
             animate={{
               backgroundPosition: ["0% 50%", "100% 50%", "0% 50%"],
             }}
-            transition={{ duration: 3, repeat: Number.POSITIVE_INFINITY }}
+            transition={{ duration: 3, repeat: Infinity }}
           >
             Our Sponsors
           </motion.h2>
@@ -258,16 +259,11 @@ export function SponsorsSection() {
           </motion.p>
         </motion.div>
 
-        {/* Sponsors Grid - 3+2 Layout */}
-        <div className="max-w-6xl mx-auto space-y-12">
-          {/* First Row - 3 Sponsors */}
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12 max-w-4xl mx-auto">
-            {firstRowSponsors.map((sponsor, index) => renderSponsorCard(sponsor, index))}
-          </div>
-
-          {/* Second Row - 2 Sponsors (Centered) */}
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-12 max-w-2xl mx-auto">
-            {secondRowSponsors.map((sponsor, index) => renderSponsorCard(sponsor, index + 3))}
+        {/* Sponsors Grid - Dynamic Layout */}
+        <div className="max-w-6xl mx-auto">
+          {/* Dynamic Grid that adapts to screen size */}
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 md:gap-12">
+            {sponsors.map((sponsor, index) => renderSponsorCard(sponsor, index))}
           </div>
         </div>
 
@@ -288,7 +284,7 @@ export function SponsorsSection() {
                 "0 0 10px rgba(6, 182, 212, 0.5)",
               ]
             }}
-            transition={{ duration: 4, repeat: Number.POSITIVE_INFINITY }}
+            transition={{ duration: 4, repeat: Infinity }}
           >
             Thank you for making Robotronics Fest 2025 possible!
           </motion.p>
