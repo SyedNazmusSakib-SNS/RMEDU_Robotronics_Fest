@@ -9,22 +9,34 @@ const timelineData = [
     date: "09.08.25",
     events: [
       {
-        time: "09:00 - 5:00",
-        name: "DU AI Challenge",
-        place: "RME Dept.",
+        time: "08:00 - 09:00 AM",
+        name: "Registration",
+        place: "Event Site",
         color: "from-cyan-400 to-blue-500"
       },
       {
-        time: "10:00 - 6:00",
-        name: "SoccerBot",
-        place: "Senate Alumni Hall Room",
+        time: "09:00 - 09:45 AM",
+        name: "Opening Ceremony",
+        place: "Senate Conference Room",
         color: "from-green-400 to-emerald-500"
       },
       {
-        time: "2:00 - 6:00",
+        time: "09:30 AM - 07:00 PM",
+        name: "DU AI Challenge",
+        place: "Science Complex - Dept. of RME (9th Floor)",
+        color: "from-purple-400 to-pink-500"
+      },
+      {
+        time: "10:00 AM - 06:00 PM",
+        name: "SoccerBot",
+        place: "Senate Alumni Hall Room",
+        color: "from-orange-400 to-red-500"
+      },
+      {
+        time: "10:00 AM - 06:00 PM",
         name: "Micromouse",
         place: "Senate Conference Room",
-        color: "from-purple-400 to-pink-500"
+        color: "from-indigo-400 to-purple-500"
       }
     ]
   },
@@ -33,20 +45,26 @@ const timelineData = [
     date: "10.08.25",
     events: [
       {
-        time: "10:00 - 2:00",
-        name: "Project Showcasing",
-        place: "Senate – Alumni Hall Room",
-        color: "from-orange-400 to-red-500"
+        time: "08:00 - 09:00 AM",
+        name: "Registration",
+        place: "Event Site",
+        color: "from-cyan-400 to-blue-500"
       },
       {
-        time: "10:00 - 2:00",
+        time: "10:00 AM - 03:00 PM",
+        name: "Project Showcase",
+        place: "Senate - Alumni Hall Room",
+        color: "from-green-400 to-emerald-500"
+      },
+      {
+        time: "10:00 AM - 03:00 PM",
         name: "Line Follower Robot",
         place: "Senate Conference Room",
-        color: "from-indigo-400 to-purple-500"
+        color: "from-purple-400 to-pink-500"
       },
       {
-        time: "3:00 - 6:00",
-        name: "Program Ending",
+        time: "04:00 - 06:00 PM",
+        name: "Closing Ceremony",
         place: "Senate Auditorium",
         color: "from-pink-400 to-rose-500"
       }
