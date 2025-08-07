@@ -31,11 +31,11 @@ export const organizers: Organizer[] = [
     tier: "second",
   },
   {
-    name: "Md. Ariful Islam",
-    designation: "Assistant Professor",
+    name: "Samia Yeasmin",
+    designation: "Lecturer",
     role: "Director of SoccerBot Segment",
     phone: "+8801677696189",
-    image: "/ariful_sir.jpg",
+    image: "/samia_maam.jpg",
     tier: "second",
   },
   {
@@ -47,7 +47,7 @@ export const organizers: Organizer[] = [
     tier: "second",
   },
   {
-    name: "Shifat-E-Arman",
+    name: "Shifat E. Arman",
     designation: "Assistant Professor",
     role: "Director of Micromouse Segment",
     phone: "+8801762333999",
