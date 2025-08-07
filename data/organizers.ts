@@ -6,7 +6,7 @@ export const organizers: Organizer[] = [
   // Head Organizers (Convener and Co-convener)
   {
     name: "Dr. Sejuti Rahman",
-    designation: "Chairperson and Associate Professor",
+    designation: "Chairperson",
     role: "Convener",
     phone: "+8001836800864",
     image: "/chairperson.jpg",
