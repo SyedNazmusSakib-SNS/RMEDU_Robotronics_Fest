@@ -5,7 +5,6 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 import { organizers } from "@/data/organizers"
 
 export function OrganizersSection() {
-  // Filter organizers by tier for better organization
   const conveners = organizers.filter((org) => org.tier === "head")
   const directors = organizers.filter((org) => org.tier === "second")
   const advisers = organizers.filter((org) => org.tier === "third")
@@ -13,6 +12,7 @@ export function OrganizersSection() {
   return (
     <section className="py-20 bg-black">
       <div className="container mx-auto px-4">
+        {/* Title */}
         <motion.h2
           className="text-4xl md:text-6xl font-bold text-center mb-16 bg-gradient-to-r from-cyan-400 to-pink-400 bg-clip-text text-transparent"
           initial={{ opacity: 0, y: 50 }}
@@ -22,7 +22,7 @@ export function OrganizersSection() {
           Organizers
         </motion.h2>
 
-        {/* Convener and Co-convener (Top Row) */}
+        {/* Row 1 - Conveners */}
         <div className="mb-16">
           <div className="flex justify-center">
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-3xl">
@@ -62,13 +62,22 @@ export function OrganizersSection() {
           </div>
         </div>
 
-        {/* Directors (Second Row) */}
+        {/* Row 2 - Directors */}
         <div className="mb-16">
           <div className="flex justify-center">
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 max-w-6xl">
+            <div
+              className="
+                grid grid-cols-1 
+                sm:grid-cols-2 
+                md:grid-cols-3 
+                lg:grid-cols-5 
+                gap-6 
+                max-w-7xl
+              "
+            >
               {directors.map((organizer, index) => (
                 <motion.div
-                  key={organizer.name}
+                  key={`${organizer.name}-${organizer.role}`}
                   initial={{ opacity: 0, y: 50 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.5, delay: index * 0.1 }}
@@ -102,10 +111,11 @@ export function OrganizersSection() {
           </div>
         </div>
 
-        {/* Advisers (Final Row) */}
+        {/* Row 3 - Advisers (Always Centered) */}
+        {/* Row 3 - Advisers (Always Perfectly Centered) */}
         <div>
           <div className="flex justify-center">
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-2xl">
+            <div className="flex flex-wrap justify-center gap-8 max-w-7xl">
               {advisers.map((organizer, index) => (
                 <motion.div
                   key={`${organizer.name}-${organizer.role}`}
@@ -141,6 +151,7 @@ export function OrganizersSection() {
             </div>
           </div>
         </div>
+
       </div>
     </section>
   )

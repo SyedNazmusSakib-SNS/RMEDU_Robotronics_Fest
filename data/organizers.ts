@@ -22,6 +22,14 @@ export const organizers: Organizer[] = [
   },
   
   // Second Tier (Directors)
+    {
+    name: "Dr. Shamim Ahmed Deowan",
+    designation: "Associate Professor",
+    role: "Advisor of SoccerBot Segment",
+    phone: "+8801677696189",
+    image: "/shamim_sir.jpeg",
+    tier: "second",
+  },
   {
     name: "Md. Ariful Islam",
     designation: "Assistant Professor",
@@ -31,7 +39,7 @@ export const organizers: Organizer[] = [
     tier: "second",
   },
   {
-    name: "Md. Jubair Ahmed Sourv",
+    name: "Md. Jubair Ahmed Sourov",
     designation: "Lecturer",
     role: "Director of LFR Segment",
     phone: "+8801521331734",
