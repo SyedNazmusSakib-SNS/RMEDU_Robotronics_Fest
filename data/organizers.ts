@@ -25,7 +25,7 @@ export const organizers: Organizer[] = [
     {
     name: "Dr. Shamim Ahmed Deowan",
     designation: "Associate Professor",
-    role: "Advisor of SoccerBot Segment",
+    role: "Advisor",
     phone: "+8801677696189",
     image: "/shamim_sir.jpeg",
     tier: "second",
